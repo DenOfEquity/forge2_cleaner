@@ -1,3 +1,10 @@
+# fixed for Forge2 (Gradio4) #
+
+#### install via Extensions tab in Forge; Install from URL; use URL of this repo ####
+### original README below (unedited) ###
+---
+
+
 # Cleaner for Stable Diffusion WebUI
 
 
