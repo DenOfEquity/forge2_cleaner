@@ -51,7 +51,7 @@ def on_ui_tabs():
                                 paste_field_names=[]
                             ))
 
-                    send_to_cleaner_button = gr.Button("Send back To clean up")
+                        send_to_cleaner_button = gr.Button("Send back To clean up")
 
             if tab_name == "Clean up":
                 clean_button.click(
