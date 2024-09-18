@@ -1,0 +1,2 @@
+will automatically download:
+https://huggingface.co/anyisalin/big-lama/resolve/main/big-lama.safetensors
