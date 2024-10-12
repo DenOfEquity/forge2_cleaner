@@ -17,7 +17,7 @@ def on_ui_tabs():
     with gr.Blocks() as object_cleaner_tab:
         
         for tab_name in ["Clean up", "Clean up upload"]:
-            with gr.Tab(tab_name) as clean_up_tab, ResizeHandleRow():
+            with gr.Tab(tab_name, id=f"cleaner_{tab_name}") as clean_up_tab, ResizeHandleRow():
                 with gr.Column():
                     if tab_name == "Clean up":
                         init_img_with_mask = gr.ImageMask(
