@@ -7,6 +7,8 @@
 >[!IMPORTANT]
 >### not for webUIs built on Gradio3 ###
 
+* updated to use ForgeCanvas, as gradio4 ImageEditor consumes CPU or GPU constantly, even when not visible
+
 ### source: https://github.com/novitalabs/sd-webui-cleaner ###
 ### original README below (unedited) ###
 ---
