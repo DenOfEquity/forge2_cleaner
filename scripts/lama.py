@@ -6,14 +6,11 @@ from modules.shared import opts
 EXTENSION_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_PATH = os.path.join(EXTENSION_PATH, "models")
 
-def clean_object_init_img_with_mask(init_img_with_mask):
-    return clean_object(init_img_with_mask['background'], init_img_with_mask['layers'])
-
 def clean_object(image, mask):
     Lama = LiteLama2()
 
     init_image = image
-    mask_image = mask[0] if type(mask) is list else mask
+    mask_image = mask
 
     init_image = init_image.convert("RGB")
     mask_image = mask_image.convert("RGB")
