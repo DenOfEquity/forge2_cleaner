@@ -5,7 +5,6 @@ from modules.shared import opts, OptionInfo
 from modules import script_callbacks
 from modules.ui_components import ToolButton
 import modules.generation_parameters_copypaste as parameters_copypaste
-from modules.ui_common import save_files
 from modules_forge.forge_canvas.canvas import ForgeCanvas, canvas_head
 from importlib import reload
 
