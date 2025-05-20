@@ -1,6 +1,6 @@
 # novitalabs/sd-webui-cleaner fixed for Forge2 (Gradio4) #
 >[!NOTE]
->#### if installed: you can just manually overwrite scripts/clean_up_tab.py and scripts/lama.py ####
+>#### if installed: you can just manually overwrite scripts/clean_up_tab.py, scripts/lama.py and javascript/cleaner.js ####
 >#### new install: via Extensions tab in Forge; Install from URL; use URL of this repo ####
 >***Do not have this version and the original installed at the same time; replace files or new install only.***
 
