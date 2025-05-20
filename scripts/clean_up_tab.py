@@ -40,9 +40,9 @@ def on_ui_tabs():
 
                 with gr.Row(elem_id=f"image_buttons", elem_classes="image-buttons"):
                     buttons = {
-                        'img2img': ToolButton('🖼️', elem_id=f'_send_to_img2img', tooltip="Send image and generation parameters to img2img tab."),
-                        'inpaint': ToolButton('🎨️', elem_id=f'_send_to_inpaint', tooltip="Send image and generation parameters to img2img inpaint tab."),
-                        'extras': ToolButton('📐', elem_id=f'_send_to_extras', tooltip="Send image and generation parameters to extras tab.")
+                        'img2img': ToolButton('🖼️', elem_id=f'_send_to_img2img', tooltip="Send image to img2img tab."),
+                        'inpaint': ToolButton('🎨️', elem_id=f'_send_to_inpaint', tooltip="Send image to img2img inpaint tab."),
+                        'extras': ToolButton('📐', elem_id=f'_send_to_extras', tooltip="Send image to extras tab.")
                     }
 
                     for paste_tabname, paste_button in buttons.items():
@@ -58,9 +58,9 @@ def on_ui_tabs():
             show_progress='full'
         )
         send_to_clean_up.click(
-            fn=lambda x: x,
+            fn=lambda x: (x, None),
             inputs=[result_gallery],
-            outputs=[cleaner_canvas.background]
+            outputs=[cleaner_canvas.background, cleaner_canvas.foreground]
         )
         clean_upload.click(
             fn=lama.clean_object,

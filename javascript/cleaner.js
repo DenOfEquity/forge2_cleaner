@@ -1,13 +1,4 @@
 (function () {
-    var hasApplied = false;
-    onUiUpdate(function () {
-        if (!hasApplied) {
-            if (typeof window.applyZoomAndPan === "function") {
-                hasApplied = true;
-                applyZoomAndPan("#cleanup_img2maskimg");
-            }
-        }
-    });
 
     onUiLoaded(function () {
         createSendToCleanerButtonSegmentAnything("txt2img_script_container");
@@ -115,7 +106,7 @@
             fetch(chooseMaskImgSrc)
                 .then(response => response.blob())
                 .then(blob => {
-                    let maskContainer = gradioApp().querySelector("#cleanup_img_inpaint_mask");
+                    let maskContainer = gradioApp().querySelector("#clean_up_init_mask");
 
                     const imageElems = maskContainer.querySelectorAll('div[data-testid="image"]')
 
@@ -129,7 +120,7 @@
                     console.error("Error fetching image:", error);
                 });
 
-            let cleanupContainer = gradioApp().querySelector("#cleanup_img_inpaint_base");
+            let cleanupContainer = gradioApp().querySelector("#clean_up_init_img");
 
             const imageElems = cleanupContainer.querySelectorAll('div[data-testid="image"]')
 
@@ -189,12 +180,12 @@
             gradioApp().querySelector('#tabs').querySelectorAll('button')[tabIndex - 1].click();
 
             if (cleanupMaskTag) {
-                let buttons = gradioApp().querySelectorAll(`#tab_cleaner_tab button`);
+                let buttons = gradioApp().querySelectorAll(`#cleaner_upload button`);
 
                 let targetButton = null;
 
                 for (let button of buttons) {
-                    if (button.textContent.trim() === 'Clean up upload') {
+                    if (button.textContent.trim() === 'Upload') {
                         targetButton = button;
                         break;
                     }
@@ -217,9 +208,9 @@
                 fetch(imgUrl)
                     .then(response => response.blob())
                     .then(blob => {
-                        let container = gradioApp().querySelector("#cleanup_img2maskimg");
+                        let container = gradioApp().getElementById("Cleaner_image");
 
-                        const imageElems = container.querySelectorAll('div[data-testid="image"]')
+                        const imageElems = container.getElementsByClassName("forge-file-upload")
 
                         if (imageElems) {
                             const dt = new DataTransfer();
@@ -236,13 +227,13 @@
         }
 
         function updateGradioImage(element, dt) {
-            let clearButton = element.querySelector("button[aria-label='Remove Image']");
+            let clearButton = element.querySelector("button[title='Remove']");
 
             if (clearButton) {
                 clearButton.click();
             }
 
-            const input = element.querySelector("input[type='file']");
+            const input = element;
 
             input.value = '';
             input.files = dt.files;
